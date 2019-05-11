@@ -33,10 +33,9 @@ const Select = styled.div`
 `;
 
 const LeftLabel = styled.div`
-  user-select: none;
   z-index: 100;
-  ${props =>
-    props.enabled
+  ${state =>
+    state.enabled
       ? css`
           font-weight: 600;
           color: #4587ef;
@@ -46,11 +45,9 @@ const LeftLabel = styled.div`
         `};
 `;
 const RightLabel = styled.div`
-  cursor: pointer;
-  user-select: none;
   z-index: 100;
-  ${props =>
-    props.enabled
+  ${state =>
+    state.enabled
       ? css`
           font-weight: 400;
         `
@@ -69,7 +66,7 @@ const Selector = styled.div`
   margin-top: -1px;
   margin-left: -1px;
   background-color: white;
-  left: ${props => (props.enabled ? "0" : "50%")};
+  left: ${state => (state.enabled ? "0" : "50%")};
   transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
 `;
@@ -98,19 +95,20 @@ export class DCSelect extends React.Component<Partial<Props>, States> {
   }
 
   handleClick = () => {
+    console.log("lol");
     this.setState({ enabled: !this.state.enabled });
   };
 
   render() {
     return (
       <Select onClick={this.handleClick}>
-        <LeftLabel enabled={this.props.enabled}>
+        <LeftLabel enabled={this.state.enabled}>
           {this.props.leftLabel}
         </LeftLabel>
-        <RightLabel enabled={this.props.enabled}>
+        <RightLabel enabled={this.state.enabled}>
           {this.props.rightLabel}
         </RightLabel>
-        <Selector enabled={this.props.enabled} />
+        <Selector enabled={this.state.enabled} />
       </Select>
     );
   }

@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@danacita/mentari": "^0.21.7",
 		"@framer/benjamin.input": "^1.2.0",
-		"@framer/zach.browser": "^1.3.0",
+		"@framer/zach.browser": "^1.4.0",
 		"styled-components": "^4.2.0"
 	}
 }

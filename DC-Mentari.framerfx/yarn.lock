@@ -169,10 +169,10 @@
   resolved "https://registry.framer.com/@framer/floris.unsplash/-/@framer/floris.unsplash-1.1.0.tgz#1fb80fd4db4d9bd46bf20a6c1da3d83f756caa0a"
   integrity sha1-H7gP1NtNm9Rr8gpsHaPYP3Vsqgo=
 
-"@framer/zach.browser@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.framer.com/@framer/zach.browser/-/@framer/zach.browser-1.3.0.tgz#e28530041e89e318270af818a8941acaba61a438"
-  integrity sha1-4oUwBB6J4xgnCvgYqJQayrphpDg=
+"@framer/zach.browser@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.framer.com/@framer/zach.browser/-/@framer/zach.browser-1.4.0.tgz#a59ef0feb9172bc905ab343545a4bbe7ab03a13f"
+  integrity sha512-DNmmNnJOtZPw3Sgp5kILbBoC+/K9O1+Tg2FssNlN0UuEWjrdadPC1I41giPsPyiyPsfPnD6VNLEOvFx9PpPsog==
   dependencies:
     "@framer/floris.unsplash" "^1.1.0"
 

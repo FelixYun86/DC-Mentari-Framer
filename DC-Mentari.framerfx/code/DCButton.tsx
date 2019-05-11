@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PropertyControls, ControlType } from "framer";
 import { Button } from "@danacita/mentari";
+import styled from "styled-components";
 
 // Button
 // Dana Cita Button with Property Controls
@@ -11,6 +12,7 @@ type Props = {
   loading: boolean;
   disabled: boolean;
   block: boolean;
+  size: string;
 };
 
 export class DCButton extends React.Component<Props> {
@@ -22,6 +24,8 @@ export class DCButton extends React.Component<Props> {
         loading={this.props.loading}
         disabled={this.props.disabled}
         block={!this.props.block}
+        size={this.props.size}
+        style={{ fontFamily: "proxima-nova,serif", fontSize: "16px" }}
       >
         {this.props.text}
       </Button>
@@ -33,7 +37,8 @@ export class DCButton extends React.Component<Props> {
     outline: false,
     loading: false,
     disabled: false,
-    block: false
+    block: false,
+    size: "Normal"
   };
 
   static propertyControls: PropertyControls<Props> = {
@@ -41,6 +46,7 @@ export class DCButton extends React.Component<Props> {
     outline: { type: ControlType.Boolean, title: "Secondary" },
     loading: { type: ControlType.Boolean, title: "isLoading" },
     disabled: { type: ControlType.Boolean, title: "Disabled" },
-    block: { type: ControlType.Boolean, title: "Auto Size" }
+    block: { type: ControlType.Boolean, title: "Auto Size" },
+    size: { type: ControlType.String, title: "Size" }
   };
 }

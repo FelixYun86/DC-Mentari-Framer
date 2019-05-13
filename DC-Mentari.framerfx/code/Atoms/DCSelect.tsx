@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PropertyControls, ControlType } from "framer";
 import styled, { css } from "styled-components";
+import { Color } from "@danacita/mentari";
 
 // Open Preview (CMD + P)
 // API Reference: https://www.framer.com/api
@@ -9,6 +10,7 @@ interface Props {
   enabled: boolean;
   leftLabel: string;
   rightLabel: string;
+  onClick: () => void;
 }
 
 interface States {
@@ -18,11 +20,11 @@ interface States {
 const Select = styled.div`
   font-family: proxima-nova, serif;
   font-size: 16px;
-  color: #6f6f6f;
+  color: ${Color.grey132};
   letter-spacing: -0.4px;
   line-height: 1.3;
   text-align: center;
-  border: 1px solid #d8d8d8;
+  border: 1px solid ${Color.grey216};
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -38,7 +40,7 @@ const LeftLabel = styled.div`
     state.enabled
       ? css`
           font-weight: 600;
-          color: #4587ef;
+          color: ${Color.blue};
         `
       : css`
           font-weight: 400;
@@ -53,13 +55,13 @@ const RightLabel = styled.div`
         `
       : css`
           font-weight: 600;
-          color: #4587ef;
+          color: ${Color.blue};
         `};
 `;
 
 const Selector = styled.div`
   position: absolute;
-  border: 1px solid #4587ef;
+  border: 1px solid ${Color.blue};
   border-radius: 4px;
   width: calc(50% + 2px);
   height: calc(100% + 2px);
@@ -67,15 +69,15 @@ const Selector = styled.div`
   margin-left: -1px;
   background-color: white;
   left: ${state => (state.enabled ? "0" : "50%")};
-  transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
+  transition: 0.2s cubic-bezier(0.2, 0.3, 0.2, 1);
 `;
 
 export class DCSelect extends React.Component<Partial<Props>, States> {
   static defaultProps: Props = {
     enabled: false,
     leftLabel: "Select 1",
-    rightLabel: "Select 2"
+    rightLabel: "Select 2",
+    onClick: () => {}
   };
 
   static propertyControls: PropertyControls<Props> = {
@@ -95,7 +97,7 @@ export class DCSelect extends React.Component<Partial<Props>, States> {
   }
 
   handleClick = () => {
-    console.log("lol");
+    this.props.onClick();
     this.setState({ enabled: !this.state.enabled });
   };
 

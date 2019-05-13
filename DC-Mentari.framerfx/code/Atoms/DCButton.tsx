@@ -1,7 +1,6 @@
 import * as React from "react";
 import { PropertyControls, ControlType } from "framer";
 import { Button } from "@danacita/mentari";
-import styled from "styled-components";
 
 // Button
 // Dana Cita Button with Property Controls
@@ -13,12 +12,14 @@ type Props = {
   disabled: boolean;
   block: boolean;
   size: string;
+  onClick: () => void;
 };
 
 export class DCButton extends React.Component<Props> {
   render() {
     return (
       <Button
+        onClick={this.props.onClick}
         color="blue"
         outline={this.props.outline}
         loading={this.props.loading}
@@ -38,7 +39,8 @@ export class DCButton extends React.Component<Props> {
     loading: false,
     disabled: false,
     block: false,
-    size: "Normal"
+    size: "Normal",
+    onClick: () => {}
   };
 
   static propertyControls: PropertyControls<Props> = {
